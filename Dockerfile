@@ -1,4 +1,4 @@
-FROM empatica/jnlp-slave-with-docker:3.10-1
+FROM empatica/jnlp-slave-with-docker:3.14-1
 MAINTAINER Giannicola Olivadoti <go@empatica.com>
 
 USER root
@@ -22,7 +22,7 @@ RUN curl -fsSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/te
 
 USER jenkins
 
-RUN pip install --upgrade awscli s3cmd python-magic && \
+RUN pip install --upgrade awscli s3cmd python-magic docker-compose && \
     mkdir -p /home/jenkins/.terraform && \
     mkdir -p /home/jenkins/.aws
 
@@ -33,4 +33,5 @@ VOLUME "/home/jenkins/.aws"
 
 USER root
 
-RUN ln -s "${HOME}/.local/bin/aws" /usr/bin/aws 
+RUN ln -s "${HOME}/.local/bin/aws" /usr/bin/aws && \
+    ln -s "${HOME}/.local/bin/docker-compose" /usr/bin/docker-compose
