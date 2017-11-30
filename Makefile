@@ -1,7 +1,7 @@
 IMAGE = empatica/jnlp-slave-with-terraform
 VERSION = 0.9.6-2
 
-.PHONY: build push release
+.PHONY: build push release shell
 
 default: release
 
@@ -14,3 +14,6 @@ push:
 release: build push
 	docker tag $(IMAGE):$(VERSION) $(IMAGE):latest
 	docker push $(IMAGE):latest
+
+shell: build
+	docker run -it --rm $(IMAGE):$(VERSION) /bin/bash
