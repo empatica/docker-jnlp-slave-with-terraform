@@ -1,5 +1,4 @@
 FROM empatica/jnlp-slave-with-docker:3.14-1
-MAINTAINER Giannicola Olivadoti <go@empatica.com>
 
 USER root
 
@@ -8,9 +7,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ENV TERRAFORM_HOME /opt/terraform
-ENV TERRAFORM_VERSION 0.9.6
-
-ARG TERRAFORM_DOWNLOAD_SHA256=7ec24a5d57da6ef7bdb5a3003791a4368489b32fa93be800655ccef0eceaf1ba
+ENV TERRAFORM_VERSION 0.11.8
+ENV TERRAFORM_DOWNLOAD_SHA256=84ccfb8e13b5fce63051294f787885b76a1fedef6bdbecf51c5e586c9e20c9b7
 
 RUN curl -fsSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip && \
     echo "${TERRAFORM_DOWNLOAD_SHA256} terraform.zip" | sha256sum --check - && \
