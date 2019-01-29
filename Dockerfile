@@ -7,8 +7,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ENV TERRAFORM_HOME /opt/terraform
-ENV TERRAFORM_VERSION 0.11.10
-ENV TERRAFORM_DOWNLOAD_SHA256=43543a0e56e31b0952ea3623521917e060f2718ab06fe2b2d506cfaa14d54527
+ENV TERRAFORM_VERSION 0.11.11
+ENV TERRAFORM_DOWNLOAD_SHA256=94504f4a67bad612b5c8e3a4b7ce6ca2772b3c1559630dfd71e9c519e3d6149c
 
 RUN curl -fsSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip && \
     echo "${TERRAFORM_DOWNLOAD_SHA256} terraform.zip" | sha256sum --check - && \
