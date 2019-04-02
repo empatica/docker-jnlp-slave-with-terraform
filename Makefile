@@ -1,5 +1,5 @@
 IMAGE = empatica/jnlp-slave-with-terraform
-VERSION = 0.11.11
+VERSION = 0.11.13
 
 .PHONY: build push release shell
 
